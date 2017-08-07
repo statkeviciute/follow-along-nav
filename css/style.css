@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0; }
+
+body {
+  font-family: sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(45deg, #ff1a66 0%, rgba(255, 26, 102, 0) 70%), linear-gradient(135deg, #0643f9 10%, rgba(6, 67, 249, 0) 80%), linear-gradient(225deg, #0df259 10%, rgba(13, 242, 89, 0) 80%), linear-gradient(315deg, #f99e1f 100%, rgba(249, 158, 31, 0) 70%); }
+
+nav {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative; }
+  nav ul {
+    list-style: none; }
+
+.cool {
+  display: flex;
+  justify-content: center; }
+  .cool > li {
+    margin: 10px;
+    display: flex;
+    justify-content: center; }
+    .cool > li > a {
+      background: rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      color: yellow;
+      padding: 10px 15px;
+      border-radius: 10px; }
+
+.dropdownbackground {
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.7s;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  opacity: 0; }
+  .dropdownbackground .arrow {
+    background: #fff;
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 20px;
+    transform: rotate(45deg) translateY(-50%); }
+
+.dropdownbackground.open {
+  opacity: 1; }
+
+.dropdown {
+  position: absolute;
+  padding: 20px;
+  margin-top: 60px;
+  display: none;
+  opacity: 0;
+  transition: all 1.5s; }
+  .dropdown .bio {
+    display: flex;
+    line-height: 1.7em;
+    width: 500px; }
+    .dropdown .bio img {
+      margin-right: 20px; }
+
+.dropdown.show {
+  display: block; }
+
+.dropdown.show.active {
+  opacity: 1; }
+
+.courses {
+  min-width: 300px; }
+  .courses li {
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey; }
+    .courses li a {
+      color: #f0d203;
+      text-decoration: none; }
+
+.dropdown3 .button {
+  padding: 10px 0;
+  text-align: center;
+  width: 140px;
+  margin-top: 5px; }
+  .dropdown3 .button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600; }
+
+.dropdown3 .T {
+  background: lightblue; }
+
+.dropdown3 .F {
+  background: #1e34f9; }
+
+.dropdown3 .B {
+  background: #000; }
+
+.dropdown3 .C {
+  background: #f0d203; }

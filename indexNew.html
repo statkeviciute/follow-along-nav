@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="top">
+      <div class="dropdownbackground">
+        <span class="arrow"></span>
+      </div>
+      <ul class="cool">
+        <li>
+          <a href="#">About Me</a>
+          <div class="dropdown dropdown1">
+            <div class="bio">
+              <img src="https://logo.clearbit.com/wesbos.com">
+              <p>Wes Bos sure does love web development. He teaches things like JavaScript, CSS and BBQ. Wait. BBQ isn't part of web development. It should be though!</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="#">Courses</a>
+          <ul class="dropdown courses">
+              <li>
+                <span>RFB</span>
+                <a href="#">React For Beginners</a>
+              </li>
+              <li>
+                <span>ES6</span>
+                <a href="#">ES6 For Everyone</a>
+              </li>
+              <li>
+                <span>STPU</span>
+                <a href="#">Sublime Text Power User</a>
+              </li>
+              <li>
+                <span>WTF</span>
+                <a href="#">What the Flexbox?</a>
+              </li>
+              <li>
+                <span>LRX</span>
+                <a href="#">Learn Redux</a>
+              </li>
+              <li>
+                <span>CLPU</span>
+                <a href="#">Command Line Power User</a>
+              </li>
+              <li>
+                <span>MMD</span>
+                <a href="#">Mastering Markdown</a>
+              </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Contacts</a>
+          <ul class="dropdown dropdown3">
+            <li class ="button T"><a href="#">Twitter</a></li>
+            <li class ="button F"><a href="#">Facebook</a></li>
+            <li class ="button B"><a href="#">Blog</a></li>
+            <li class ="button C"><a href="#">Course Catalog</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+      <script>
+
+      const triggers = document.querySelectorAll('.cool > li');
+      const background = document.querySelector('.dropdownbackground');
+      const nav = document.querySelector('nav');
+
+      function showMenu() {
+        const dropdown = this.querySelector('.dropdown');
+        dropdown.classList.add('show');
+        background.classList.add('open');
+        const active = setTimeout( () => {
+            if (dropdown.classList.contains('show')) {
+              dropdown.classList.add('active');
+            }
+        }, 150)
+
+        const coords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
+
+        background.style.width = `${coords.width}px`;
+        background.style.height = `${coords.height}px`;
+        background.style.top = `${coords.top - navCoords.top}px`;
+        background.style.left = `${coords.left - navCoords.left}px`;
+      }
+
+      function hideMenu() {
+        const dropdown = this.querySelector('.dropdown');
+        dropdown.classList.remove('show', 'active');
+        background.classList.remove('open');
+      }
+
+      triggers.forEach(trigger => trigger.addEventListener('mouseenter', showMenu));
+      triggers.forEach(trigger => trigger.addEventListener('mouseleave', hideMenu));
+
+
+
+      </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Follow along nav</title>
+  </head>
+  <body>
+    <h2>Cool</h2>
+
+    <nav class="top">
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div>
+
+      <li>
+        <a href="#">About Me</a>
+        <div class="dropdown dropdown1">
+          <div class="bio">
+            <img src="https://logo.clearbit.com/wesbos.com">
+            <p>Wes Bos sure does love web development. He teaches things like JavaScript, CSS and BBQ. Wait. BBQ isn't part of web development. It should be though!</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#">Courses</a>
+        <ul class="dropdown courses">
+          <li>
+            <span class="code">RFB</span>
+            <a href="https://ReactForBeginners.com">React For Beginners</a>
+          </li>
+          <li>
+            <span class="code">ES6</span>
+            <a href="https://ReactForBeginners.com">ES6 for everyone</a>
+          </li>
+          <li>
+            <span class="code">STPU</span>
+            <a href="https://ReactForBeginners.com">Sublime Text power user</a>
+          </li>
+          <li>
+            <span class="code">WTF</span>
+            <a href="http://flexbox.io">What The Flexbox?!</a>
+          </li>
+          <li>
+            <span class="code">LRX</span>
+            <a href="http://LearnRedux.com">Learn Redux</a>
+          </li>
+          <li>
+            <span class="code">CLPU</span>
+            <a href="http://CommandLinePowerUser.com">Command Line Power User</a>
+          </li>
+          <li>
+            <span class="code">MMD</span>
+            <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Other Links</a>
+        <ul class="dropdown dropdown3">
+          <li><a class="button T" href="#">Twitter</a></li>
+          <li><a class="button F" href="#">Facebook</a></li>
+          <li><a class="button B" href="#">Blog</a></li>
+          <li><a class="button C" href="#">Course Catalog</a></li>
+        </ul>
+      </li>
+    </nav>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+
+
+          height: 100vh;
+          width: 100vw;
+          font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+          margin:0;
+          background:
+          linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+          linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+          linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+          linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+        }
+
+        nav{
+          display: flex;
+          margin-top: 30px;
+          width: 600px;
+          margin: 0 auto;
+
+        }
+
+        ul,li  {
+          list-style: none;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        nav > li > a {
+          color: yellow;
+          border-radius: 10px;
+          padding: 10px 15px;
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        nav > li {
+          padding: 20px;
+          position: relative;
+        }
+
+        .dropdown {
+          opacity: 0;
+          display: none;
+          position: absolute;
+          padding: 20px 30px;
+          margin-top: 25px;
+          transition: all 0.1s;
+          transform: translateX(-45%);
+
+        }
+
+        .trigger-enter .dropdown {
+          display: block;
+        }
+
+        .trigger-enter-active .dropdown {
+          opacity: 1;
+        }
+
+        .dropdownBackground {
+          width: 100px;
+          height: 100px;
+          background-color: #fff;
+          box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+          border-radius: 5px;
+          opacity: 0;
+          position: absolute;
+          transition: all 0.3s, opacity 0.2s, transform 0.1s;
+        }
+
+
+        .dropdownBackground.open {
+          opacity: 1;
+        }
+
+        .arrow {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background: #fff;
+          top: -20px;
+          left: 50%;
+          transform: translateY(50%) rotate(45deg);
+        }
+
+        .courses > li > a {
+          color: #ffc600;
+        }
+
+
+        .dropdown3 > li > a {
+          color: white;
+        }
+
+        .bio {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          line-height: 1.7em;
+          min-width: 500px;
+        }
+
+        .courses {
+          min-width: 300px;
+        }
+
+        .courses > li {
+          border-bottom: 1px solid lightgrey;
+          padding: 15px 0;
+        }
+
+        a.button {
+          padding: 10px;
+          width: 150px;
+          display: block;
+          margin-bottom: 5px;
+
+        }
+
+        .T { background-color: #019FE9;}
+        .F { background-color: #3B5998;}
+        .B { background-color: black;}
+        .C { background-color: #ffc600;}
+
+
+        img {
+          margin-right: 10px;
+        }
+      </style>
+
+      <script>
+
+        const triggers = document.querySelectorAll('nav >li');
+        const backGround = document.querySelector('.dropdownBackground');
+        const nav = document.querySelector('nav');
+
+        function handleEnter() {
+          this.classList.add('trigger-enter');
+          setTimeout (() => {
+            if(this.classList.contains('trigger-enter')) {
+              this.classList.add('trigger-enter-active')
+            }
+          }, 150);
+          backGround.classList.add('open');
+
+          const dropdown = this.querySelector('.dropdown');
+          const dropdownCoords = dropdown.getBoundingClientRect();
+          const navcoords = nav.getBoundingClientRect();
+
+
+          backGround.style.height = (`${dropdownCoords.height}px`);
+          backGround.style.width = (`${dropdownCoords.width}px`);
+          backGround.style.top = (`${dropdownCoords.top + window.scrollY}px`);
+          backGround.style.left = (`${dropdownCoords.left + window.scrollX}px`);
+
+        }
+
+        function handleLeave() {
+          this.classList.remove('trigger-enter', 'trigger-enter-active');
+          backGround.classList.remove('open');
+        }
+
+        triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+        triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+
+
+
+
+      </script>
+
+  </body>
+</html>

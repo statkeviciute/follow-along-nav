@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  overflow:hidden;
+  height: 100vh;
+  width: 100vw;
+  background:
+    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+    linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+    linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+    linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  }
+
+  nav {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  .cool {
+    display: flex;
+    justify-content: center;
+
+    >li {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+
+      >a {
+        background: rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        color: yellow;
+        padding: 10px 15px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .dropdownbackground {
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.7s;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    .arrow {
+      background: #fff;
+      position:absolute;
+      display: block;
+      height: 20px;
+      width: 20px;
+      transform: rotate(45deg) translateY(-50%)
+    }
+  }
+
+    .dropdownbackground.open {
+      opacity: 1;
+    }
+
+
+  .dropdown {
+    position: absolute;
+    padding: 20px;
+    margin-top: 60px;
+    display: none;
+    opacity: 0;
+    transition: all 1.5s;
+
+    .bio {
+      display: flex;
+      line-height: 1.7em;
+      width: 500px;
+
+      img{
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .dropdown.show {
+    display: block;
+  }
+
+  .dropdown.show.active {
+    opacity: 1;
+  }
+
+  .courses {
+    min-width: 300px;
+    li{
+      padding: 10px 0;
+      border-bottom: 1px solid lightgrey;
+      a {
+        color: rgb(240, 210, 3);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .dropdown3 {
+    .button {
+      padding: 10px 0;
+      text-align: center;
+      width: 140px;
+      margin-top: 5px;
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+    .T {background: lightblue}
+    .F {background: rgb(30, 52, 249)}
+    .B {background: #000}
+    .C {background: rgb(240, 210, 3)}
+  }
